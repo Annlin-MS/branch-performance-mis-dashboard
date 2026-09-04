@@ -1,0 +1,151 @@
+BRANCH_ID,BRANCH_NAME,BRANCH_STATE,INDIAN_STATE,REGION,ZONE,BRANCH_TYPE
+B00001,ND00000,North Dakota,Mizoram,Northeast,Northeast Zone,Semi-Urban
+B00002,NE00001,Nebraska,Manipur,Northeast,Northeast Zone,Semi-Urban
+B00003,CT00002,Connecticut,Goa,West,West Zone,Urban
+B00004,MO00003,Missouri,Assam,Northeast,Northeast Zone,Semi-Urban
+B00005,NV00004,Nevada,Jammu and Kashmir,North,North Zone,Urban
+B00006,ME00005,Maine,Meghalaya,Northeast,Northeast Zone,Semi-Urban
+B00007,NY00006,New York,Karnataka,South,South Zone,Urban
+B00008,ME00007,Maine,Meghalaya,Northeast,Northeast Zone,Semi-Urban
+B00009,IA00008,Iowa,Odisha,East,East Zone,Semi-Urban
+B00010,PA00009,Pennsylvania,Madhya Pradesh,Central,Central Zone,Semi-Urban
+B00011,NC00010,North Carolina,Sikkim,Northeast,Northeast Zone,Semi-Urban
+B00012,NH00011,New Hampshire,Tripura,Northeast,Northeast Zone,Semi-Urban
+B00013,SC00012,South Carolina,Chandigarh,North,North Zone,Urban
+B00014,AL00013,Alabama,Kerala,South,South Zone,Urban
+B00015,MD00014,Maryland,Haryana,North,North Zone,Urban
+B00016,NM00015,New Mexico,Nagaland,Northeast,Northeast Zone,Semi-Urban
+B00017,SD00016,South Dakota,Meghalaya,Northeast,Northeast Zone,Semi-Urban
+B00018,LA00017,Louisiana,Andhra Pradesh,South,South Zone,Urban
+B00019,NM00018,New Mexico,Nagaland,Northeast,Northeast Zone,Semi-Urban
+B00020,NY00019,New York,Karnataka,South,South Zone,Urban
+B00021,WI00020,Wisconsin,Karnataka,South,South Zone,Urban
+B00022,WA00021,Washington,Maharashtra,West,West Zone,Urban
+B00023,UT00022,Utah,Gujarat,West,West Zone,Urban
+B00024,AL00023,Alabama,Kerala,South,South Zone,Urban
+B00025,LA00024,Louisiana,Andhra Pradesh,South,South Zone,Urban
+B00026,HI00025,Hawaii,Andaman and Nicobar,Island,Island Zone,Semi-Urban
+B00027,VA00026,Virginia,Kerala,South,South Zone,Urban
+B00028,PR00027,Puerto Rico,Lakshadweep,Island,Island Zone,Semi-Urban
+B00029,MN00028,Minnesota,Punjab,North,North Zone,Urban
+B00030,HI00029,Hawaii,Andaman and Nicobar,Island,Island Zone,Semi-Urban
+B00031,NH00030,New Hampshire,Tripura,Northeast,Northeast Zone,Semi-Urban
+B00032,RI00031,Rhode Island,Dadra and NH,West,West Zone,Urban
+B00033,TX00032,Texas,Telangana,South,South Zone,Urban
+B00034,IA00033,Iowa,Odisha,East,East Zone,Semi-Urban
+B00035,NC00034,North Carolina,Sikkim,Northeast,Northeast Zone,Semi-Urban
+B00036,IL00035,Illinois,Uttar Pradesh,North,North Zone,Urban
+B00037,WI00036,Wisconsin,Karnataka,South,South Zone,Urban
+B00038,MO00037,Missouri,Assam,Northeast,Northeast Zone,Semi-Urban
+B00039,CO00038,Colorado,Uttarakhand,North,North Zone,Urban
+B00040,LA00039,Louisiana,Andhra Pradesh,South,South Zone,Urban
+B00041,OR00040,Oregon,Himachal Pradesh,North,North Zone,Urban
+B00042,WY00041,Wyoming,Rajasthan,North,North Zone,Urban
+B00043,AK00042,Alaska,Ladakh,North,North Zone,Urban
+B00044,NC00043,North Carolina,Sikkim,Northeast,Northeast Zone,Semi-Urban
+B00045,CA00044,California,Maharashtra,West,West Zone,Urban
+B00046,NV00045,Nevada,Jammu and Kashmir,North,North Zone,Urban
+B00047,AZ00046,Arizona,Rajasthan,North,North Zone,Urban
+B00048,DE00047,Delaware,Puducherry,South,South Zone,Urban
+B00049,VA00048,Virginia,Kerala,South,South Zone,Urban
+B00050,MO00049,Missouri,Assam,Northeast,Northeast Zone,Semi-Urban
+B00001,NY00000,New York,Karnataka,South,South Zone,Urban
+B00002,NV00001,Nevada,Jammu and Kashmir,North,North Zone,Urban
+B00003,WY00002,Wyoming,Rajasthan,North,North Zone,Urban
+B00004,NM00003,New Mexico,Nagaland,Northeast,Northeast Zone,Semi-Urban
+B00005,AL00004,Alabama,Kerala,South,South Zone,Urban
+B00006,DC00005,District of Columbia,New Delhi,North,North Zone,Urban
+B00007,CO00006,Colorado,Uttarakhand,North,North Zone,Urban
+B00008,NJ00007,New Jersey,Tamil Nadu,South,South Zone,Urban
+B00009,PR00008,Puerto Rico,Lakshadweep,Island,Island Zone,Semi-Urban
+B00010,LA00009,Louisiana,Andhra Pradesh,South,South Zone,Urban
+B00011,MS00010,Mississippi,Telangana,South,South Zone,Urban
+B00012,TN00011,Tennessee,Tamil Nadu,South,South Zone,Urban
+B00013,VT00012,Vermont,Sikkim,Northeast,Northeast Zone,Semi-Urban
+B00014,AK00013,Alaska,Ladakh,North,North Zone,Urban
+B00015,TN00014,Tennessee,Tamil Nadu,South,South Zone,Urban
+B00016,WA00015,Washington,Maharashtra,West,West Zone,Urban
+B00017,WY00016,Wyoming,Rajasthan,North,North Zone,Urban
+B00018,RI00017,Rhode Island,Dadra and NH,West,West Zone,Urban
+B00019,PR00018,Puerto Rico,Lakshadweep,Island,Island Zone,Semi-Urban
+B00020,AZ00019,Arizona,Rajasthan,North,North Zone,Urban
+B00021,TX00020,Texas,Telangana,South,South Zone,Urban
+B00022,PR00021,Puerto Rico,Lakshadweep,Island,Island Zone,Semi-Urban
+B00023,NY00022,New York,Karnataka,South,South Zone,Urban
+B00024,ND00023,North Dakota,Mizoram,Northeast,Northeast Zone,Semi-Urban
+B00025,NH00024,New Hampshire,Tripura,Northeast,Northeast Zone,Semi-Urban
+B00026,ID00025,Idaho,Himachal Pradesh,North,North Zone,Urban
+B00027,TN00026,Tennessee,Tamil Nadu,South,South Zone,Urban
+B00028,MS00027,Mississippi,Telangana,South,South Zone,Urban
+B00029,VT00028,Vermont,Sikkim,Northeast,Northeast Zone,Semi-Urban
+B00030,CT00029,Connecticut,Goa,West,West Zone,Urban
+B00031,WV00030,West Virginia,Jharkhand,East,East Zone,Semi-Urban
+B00032,KY00031,Kentucky,Jharkhand,East,East Zone,Semi-Urban
+B00033,NV00032,Nevada,Jammu and Kashmir,North,North Zone,Urban
+B00034,CO00033,Colorado,Uttarakhand,North,North Zone,Urban
+B00035,MI00034,Michigan,Gujarat,West,West Zone,Urban
+B00036,MT00035,Montana,Arunachal Pradesh,Northeast,Northeast Zone,Semi-Urban
+B00037,MI00036,Michigan,Gujarat,West,West Zone,Urban
+B00038,WY00037,Wyoming,Rajasthan,North,North Zone,Urban
+B00039,OK00038,Oklahoma,Uttarakhand,North,North Zone,Urban
+B00040,OH00039,Ohio,Delhi,North,North Zone,Urban
+B00041,AZ00040,Arizona,Rajasthan,North,North Zone,Urban
+B00042,MO00041,Missouri,Assam,Northeast,Northeast Zone,Semi-Urban
+B00043,HI00042,Hawaii,Andaman and Nicobar,Island,Island Zone,Semi-Urban
+B00044,IA00043,Iowa,Odisha,East,East Zone,Semi-Urban
+B00045,ND00044,North Dakota,Mizoram,Northeast,Northeast Zone,Semi-Urban
+B00046,VT00045,Vermont,Sikkim,Northeast,Northeast Zone,Semi-Urban
+B00047,VA00046,Virginia,Kerala,South,South Zone,Urban
+B00048,CO00047,Colorado,Uttarakhand,North,North Zone,Urban
+B00049,MD00048,Maryland,Haryana,North,North Zone,Urban
+B00050,AR00049,Arkansas,Chhattisgarh,Central,Central Zone,Semi-Urban
+B00001,OR00000,Oregon,Himachal Pradesh,North,North Zone,Urban
+B00002,OR00001,Oregon,Himachal Pradesh,North,North Zone,Urban
+B00003,CT00002,Connecticut,Goa,West,West Zone,Urban
+B00004,ME00003,Maine,Meghalaya,Northeast,Northeast Zone,Semi-Urban
+B00005,NE00004,Nebraska,Manipur,Northeast,Northeast Zone,Semi-Urban
+B00006,VT00005,Vermont,Sikkim,Northeast,Northeast Zone,Semi-Urban
+B00007,NC00006,North Carolina,Sikkim,Northeast,Northeast Zone,Semi-Urban
+B00008,TX00007,Texas,Telangana,South,South Zone,Urban
+B00009,TN00008,Tennessee,Tamil Nadu,South,South Zone,Urban
+B00010,CT00009,Connecticut,Goa,West,West Zone,Urban
+B00011,IN00010,Indiana,Bihar,East,East Zone,Semi-Urban
+B00012,WA00011,Washington,Maharashtra,West,West Zone,Urban
+B00013,WV00012,West Virginia,Jharkhand,East,East Zone,Semi-Urban
+B00014,VA00013,Virginia,Kerala,South,South Zone,Urban
+B00015,OK00014,Oklahoma,Uttarakhand,North,North Zone,Urban
+B00016,AL00015,Alabama,Kerala,South,South Zone,Urban
+B00017,CA00016,California,Maharashtra,West,West Zone,Urban
+B00018,NJ00017,New Jersey,Tamil Nadu,South,South Zone,Urban
+B00019,WY00018,Wyoming,Rajasthan,North,North Zone,Urban
+B00020,SC00019,South Carolina,Chandigarh,North,North Zone,Urban
+B00021,OR00020,Oregon,Himachal Pradesh,North,North Zone,Urban
+B00022,DE00021,Delaware,Puducherry,South,South Zone,Urban
+B00023,MA00022,Massachusetts,West Bengal,East,East Zone,Semi-Urban
+B00024,VI00023,Virgin Islands,Lakshadweep,Island,Island Zone,Semi-Urban
+B00025,AZ00024,Arizona,Rajasthan,North,North Zone,Urban
+B00026,NM00025,New Mexico,Nagaland,Northeast,Northeast Zone,Semi-Urban
+B00027,CA00026,California,Maharashtra,West,West Zone,Urban
+B00028,WI00027,Wisconsin,Karnataka,South,South Zone,Urban
+B00029,AR00028,Arkansas,Chhattisgarh,Central,Central Zone,Semi-Urban
+B00030,MI00029,Michigan,Gujarat,West,West Zone,Urban
+B00031,VA00030,Virginia,Kerala,South,South Zone,Urban
+B00032,CO00031,Colorado,Uttarakhand,North,North Zone,Urban
+B00033,OK00032,Oklahoma,Uttarakhand,North,North Zone,Urban
+B00034,DE00033,Delaware,Puducherry,South,South Zone,Urban
+B00035,WV00034,West Virginia,Jharkhand,East,East Zone,Semi-Urban
+B00036,CO00035,Colorado,Uttarakhand,North,North Zone,Urban
+B00037,AR00036,Arkansas,Chhattisgarh,Central,Central Zone,Semi-Urban
+B00038,PR00037,Puerto Rico,Lakshadweep,Island,Island Zone,Semi-Urban
+B00039,SC00038,South Carolina,Chandigarh,North,North Zone,Urban
+B00040,WI00039,Wisconsin,Karnataka,South,South Zone,Urban
+B00041,RI00040,Rhode Island,Dadra and NH,West,West Zone,Urban
+B00042,KS00041,Kansas,Madhya Pradesh,Central,Central Zone,Semi-Urban
+B00043,HI00042,Hawaii,Andaman and Nicobar,Island,Island Zone,Semi-Urban
+B00044,WI00043,Wisconsin,Karnataka,South,South Zone,Urban
+B00045,SC00044,South Carolina,Chandigarh,North,North Zone,Urban
+B00046,AZ00045,Arizona,Rajasthan,North,North Zone,Urban
+B00047,TN00046,Tennessee,Tamil Nadu,South,South Zone,Urban
+B00048,NH00047,New Hampshire,Tripura,Northeast,Northeast Zone,Semi-Urban
+B00049,TN00048,Tennessee,Tamil Nadu,South,South Zone,Urban
+B00050,MT00049,Montana,Arunachal Pradesh,Northeast,Northeast Zone,Semi-Urban
