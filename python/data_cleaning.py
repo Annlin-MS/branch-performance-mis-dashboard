@@ -273,3 +273,296 @@ print("clean_transactions.csv ->", len(df_transaction), "rows")
 print("clean_loans.csv ->", len(df_loan), "rows")
 print("branch_targets.csv ->", len(targets_df), "rows")
 
+# Check branch rows and unique branches
+print(df_branch.shape)
+print(df_branch['BRANCH_ID'].nunique())
+
+# Keep one row per branch
+df_branch = df_branch.drop_duplicates(subset=['BRANCH_ID'])
+
+# Save cleaned branches
+df_branch.to_csv("../data/clean/clean_branches.csv", index=False)
+
+print(df_branch.shape)
+
+# Check branch mapping
+print(df_branch[['BRANCH_ID', 'BRANCH_STATE', 'INDIAN_STATE', 'REGION', 'ZONE']].head(10))
+
+# Prepare branch data for MySQL
+df_branch_mysql = df_branch[
+    ['BRANCH_ID', 'BRANCH_NAME', 'INDIAN_STATE', 'REGION', 'ZONE', 'BRANCH_TYPE']
+]
+
+df_branch_mysql.to_csv(
+    "../data/clean/clean_branches_mysql.csv",
+    index=False
+)
+
+# Prepare customer data for MySQL
+df_customer_mysql = df_customer[
+    ['CUSTOMER_ID', 'FULL_NAME', 'City', 'Occupation', 'DOB', 'AGE', 'AGE_GROUP']
+].copy()
+
+# Rename columns to match MySQL
+df_customer_mysql.columns = [
+    'customer_id',
+    'full_name',
+    'city',
+    'occupation',
+    'dob',
+    'age',
+    'age_group'
+]
+
+df_customer_mysql.to_csv(
+    "../data/clean/clean_customers_mysql.csv",
+    index=False
+)
+
+print("Customer rows:", len(df_customer))
+print("MySQL customer rows:", len(df_customer_mysql))
+
+import pandas as pd
+
+# Check saved customer CSV
+check = pd.read_csv("../data/clean/clean_customers_mysql.csv")
+
+print("CSV rows:", len(check))
+print("CSV columns:", list(check.columns))
+
+# Check customer ID relationships
+print("Customers:", df_customer['CUSTOMER_ID'].nunique())
+print("Accounts:", df_account['CUSTOMER_ID'].nunique())
+print("Loans:", df_loan['CUSTOMER_ID'].nunique())
+
+print("Customer rows:", len(df_customer))
+print("Account rows:", len(df_account))
+print("Loan rows:", len(df_loan))
+
+# Keep one record per customer ID
+df_customer = df_customer.drop_duplicates(
+    subset=['CUSTOMER_ID'],
+    keep='first'
+)
+
+print("Unique customers:", len(df_customer))
+
+check = pd.read_csv("../data/clean/clean_customers_mysql.csv")
+print("CSV rows:", len(check))
+print("Unique IDs:", check['customer_id'].nunique())
+
+# Keep one record per customer
+df_customer = df_customer.drop_duplicates(
+    subset=['CUSTOMER_ID'],
+    keep='first'
+)
+
+print("Customer rows:", len(df_customer))
+print("Unique IDs:", df_customer['CUSTOMER_ID'].nunique())
+
+# Prepare customer data for MySQL
+df_customer_mysql = df_customer[
+    ['CUSTOMER_ID', 'FULL_NAME', 'City', 'Occupation',
+     'DOB', 'AGE', 'AGE_GROUP']
+].copy()
+
+df_customer_mysql.columns = [
+    'customer_id', 'full_name', 'city', 'occupation',
+    'dob', 'age', 'age_group'
+]
+
+df_customer_mysql.to_csv(
+    "../data/clean/clean_customers_mysql.csv",
+    index=False
+)
+
+check = pd.read_csv("../data/clean/clean_customers_mysql.csv")
+
+print("CSV rows:", len(check))
+print("Unique IDs:", check['customer_id'].nunique())
+
+# Prepare account data for MySQL
+df_account_mysql = df_account[
+    ['ACCOUNT_ID', 'CUSTOMER_ID', 'BRANCH_ID', 'OPENING_BALANCE',
+     'ACCOUNT_OPEN_DATE', 'OPEN_YEAR', 'OPEN_MONTH', 'ACCOUNT_TYPE',
+     'ACCOUNT_STATUS', 'IS_CASA']
+].copy()
+
+df_account_mysql.columns = [
+    'account_id', 'customer_id', 'branch_id', 'opening_balance',
+    'account_open_date', 'open_year', 'open_month', 'account_type',
+    'account_status', 'is_casa'
+]
+
+df_account_mysql.to_csv(
+    "../data/clean/clean_accounts_mysql.csv",
+    index=False
+)
+
+print("Rows:", len(df_account_mysql))
+print("Unique accounts:", df_account_mysql['account_id'].nunique())
+
+check = pd.read_csv("../data/clean/clean_accounts_mysql.csv")
+
+print(check.shape)
+print(check.columns.tolist())
+print("Unique account IDs:", check['account_id'].nunique())
+
+# Check account duplicates
+duplicates = df_account[
+    df_account.duplicated('ACCOUNT_ID', keep=False)
+]
+
+print(duplicates[['ACCOUNT_ID', 'CUSTOMER_ID', 'BRANCH_ID']].head(10))
+
+# Inspect one duplicated account
+print(df_account[df_account['ACCOUNT_ID'] == 'A00001'])
+
+# Keep one record per account
+df_account = df_account.drop_duplicates(
+    subset=['ACCOUNT_ID'],
+    keep='first'
+)
+
+print("Account rows:", len(df_account))
+print("Unique accounts:", df_account['ACCOUNT_ID'].nunique())
+
+# Prepare account data for MySQL
+df_account_mysql = df_account[
+    ['ACCOUNT_ID', 'CUSTOMER_ID', 'BRANCH_ID', 'OPENING_BALANCE',
+     'ACCOUNT_OPEN_DATE', 'OPEN_YEAR', 'OPEN_MONTH', 'ACCOUNT_TYPE',
+     'ACCOUNT_STATUS', 'IS_CASA']
+].copy()
+
+df_account_mysql.columns = [
+    'account_id', 'customer_id', 'branch_id', 'opening_balance',
+    'account_open_date', 'open_year', 'open_month', 'account_type',
+    'account_status', 'is_casa'
+]
+
+df_account_mysql.to_csv(
+    "../data/clean/clean_accounts_mysql.csv",
+    index=False
+)
+
+check = pd.read_csv("../data/clean/clean_accounts_mysql.csv")
+
+print("CSV rows:", len(check))
+print("Unique IDs:", check['account_id'].nunique())
+
+# Prepare transaction data for MySQL
+df_transaction_mysql = df_transaction[
+    ['TRANSACTION_ID', 'ACCOUNT_ID', 'TRANSACTION_DATE',
+     'YEAR', 'MONTH', 'QUARTER', 'YEAR_MONTH',
+     'TRANSACTION_MEDIA', 'TRANSACTION_TYPE',
+     'TRANSACTION_AMOUNT', 'IS_INFLOW']
+].copy()
+
+df_transaction_mysql.columns = [
+    'transaction_id', 'account_id', 'transaction_date',
+    'year', 'month', 'quarter', 'year_month',
+    'transaction_media', 'transaction_type',
+    'transaction_amount', 'is_inflow'
+]
+
+df_transaction_mysql.to_csv(
+    "../data/clean/clean_transactions_mysql.csv",
+    index=False
+)
+
+print("Rows:", len(df_transaction_mysql))
+print("Unique transactions:", df_transaction_mysql['transaction_id'].nunique())
+
+# Find duplicated transaction IDs
+duplicates = df_transaction[
+    df_transaction.duplicated('TRANSACTION_ID', keep=False)
+]
+
+print(duplicates[['TRANSACTION_ID', 'ACCOUNT_ID',
+                  'TRANSACTION_DATE', 'TRANSACTION_TYPE',
+                  'TRANSACTION_AMOUNT']].head(10))
+
+# Inspect one duplicate
+print(
+    df_transaction[
+        df_transaction['TRANSACTION_ID'] == 'T00001'
+    ]
+)
+
+# Create unique transaction IDs
+df_transaction['TRANSACTION_ID'] = [
+    f"T{i:05d}" for i in range(1, len(df_transaction) + 1)
+]
+
+print("Rows:", len(df_transaction))
+print("Unique transactions:", df_transaction['TRANSACTION_ID'].nunique())
+
+# Prepare transaction data for MySQL
+df_transaction_mysql = df_transaction[
+    ['TRANSACTION_ID', 'ACCOUNT_ID', 'TRANSACTION_DATE',
+     'YEAR', 'MONTH', 'QUARTER', 'YEAR_MONTH',
+     'TRANSACTION_MEDIA', 'TRANSACTION_TYPE',
+     'TRANSACTION_AMOUNT', 'IS_INFLOW']
+].copy()
+
+df_transaction_mysql.columns = [
+    'transaction_id', 'account_id', 'transaction_date',
+    'year', 'month', 'quarter', 'year_month',
+    'transaction_media', 'transaction_type',
+    'transaction_amount', 'is_inflow'
+]
+
+df_transaction_mysql.to_csv(
+    "../data/clean/clean_transactions_mysql.csv",
+    index=False
+)
+
+check = pd.read_csv("../data/clean/clean_transactions_mysql.csv")
+
+print("CSV rows:", len(check))
+print("Unique IDs:", check['transaction_id'].nunique())
+
+# Check loan IDs
+print("Loan rows:", len(df_loan))
+print("Unique loans:", df_loan['LOAN_ID'].nunique())
+
+# Inspect duplicated loan IDs
+duplicates = df_loan[
+    df_loan.duplicated('LOAN_ID', keep=False)
+]
+
+print(duplicates.head(10))
+
+# Inspect one duplicate loan
+print(
+    df_loan[
+        df_loan['LOAN_ID'] == 'L00001'
+    ]
+)
+
+# Create unique loan IDs
+df_loan['LOAN_ID'] = [
+    f"L{i:05d}" for i in range(1, len(df_loan) + 1)
+]
+
+print("Loan rows:", len(df_loan))
+print("Unique loans:", df_loan['LOAN_ID'].nunique())
+
+# Prepare loan data for MySQL
+df_loan_mysql = df_loan[
+    ['LOAN_ID', 'CUSTOMER_ID', 'BRANCH_ID', 'LOAN_AMOUNT']
+].copy()
+
+df_loan_mysql.columns = [
+    'loan_id', 'customer_id', 'branch_id', 'loan_amount'
+]
+
+df_loan_mysql.to_csv(
+    "../data/clean/clean_loans_mysql.csv",
+    index=False
+)
+
+check = pd.read_csv("../data/clean/clean_loans_mysql.csv")
+
+print("CSV rows:", len(check))
+print("Unique IDs:", check['loan_id'].nunique())
