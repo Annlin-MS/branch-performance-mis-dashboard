@@ -1,0 +1,51 @@
+BRANCH_ID,BRANCH_NAME,INDIAN_STATE,REGION,ZONE,BRANCH_TYPE
+B00001,ND00000,Mizoram,Northeast,Northeast Zone,Semi-Urban
+B00002,NE00001,Manipur,Northeast,Northeast Zone,Semi-Urban
+B00003,CT00002,Goa,West,West Zone,Urban
+B00004,MO00003,Assam,Northeast,Northeast Zone,Semi-Urban
+B00005,NV00004,Jammu and Kashmir,North,North Zone,Urban
+B00006,ME00005,Meghalaya,Northeast,Northeast Zone,Semi-Urban
+B00007,NY00006,Karnataka,South,South Zone,Urban
+B00008,ME00007,Meghalaya,Northeast,Northeast Zone,Semi-Urban
+B00009,IA00008,Odisha,East,East Zone,Semi-Urban
+B00010,PA00009,Madhya Pradesh,Central,Central Zone,Semi-Urban
+B00011,NC00010,Sikkim,Northeast,Northeast Zone,Semi-Urban
+B00012,NH00011,Tripura,Northeast,Northeast Zone,Semi-Urban
+B00013,SC00012,Chandigarh,North,North Zone,Urban
+B00014,AL00013,Kerala,South,South Zone,Urban
+B00015,MD00014,Haryana,North,North Zone,Urban
+B00016,NM00015,Nagaland,Northeast,Northeast Zone,Semi-Urban
+B00017,SD00016,Meghalaya,Northeast,Northeast Zone,Semi-Urban
+B00018,LA00017,Andhra Pradesh,South,South Zone,Urban
+B00019,NM00018,Nagaland,Northeast,Northeast Zone,Semi-Urban
+B00020,NY00019,Karnataka,South,South Zone,Urban
+B00021,WI00020,Karnataka,South,South Zone,Urban
+B00022,WA00021,Maharashtra,West,West Zone,Urban
+B00023,UT00022,Gujarat,West,West Zone,Urban
+B00024,AL00023,Kerala,South,South Zone,Urban
+B00025,LA00024,Andhra Pradesh,South,South Zone,Urban
+B00026,HI00025,Andaman and Nicobar,Island,Island Zone,Semi-Urban
+B00027,VA00026,Kerala,South,South Zone,Urban
+B00028,PR00027,Lakshadweep,Island,Island Zone,Semi-Urban
+B00029,MN00028,Punjab,North,North Zone,Urban
+B00030,HI00029,Andaman and Nicobar,Island,Island Zone,Semi-Urban
+B00031,NH00030,Tripura,Northeast,Northeast Zone,Semi-Urban
+B00032,RI00031,Dadra and NH,West,West Zone,Urban
+B00033,TX00032,Telangana,South,South Zone,Urban
+B00034,IA00033,Odisha,East,East Zone,Semi-Urban
+B00035,NC00034,Sikkim,Northeast,Northeast Zone,Semi-Urban
+B00036,IL00035,Uttar Pradesh,North,North Zone,Urban
+B00037,WI00036,Karnataka,South,South Zone,Urban
+B00038,MO00037,Assam,Northeast,Northeast Zone,Semi-Urban
+B00039,CO00038,Uttarakhand,North,North Zone,Urban
+B00040,LA00039,Andhra Pradesh,South,South Zone,Urban
+B00041,OR00040,Himachal Pradesh,North,North Zone,Urban
+B00042,WY00041,Rajasthan,North,North Zone,Urban
+B00043,AK00042,Ladakh,North,North Zone,Urban
+B00044,NC00043,Sikkim,Northeast,Northeast Zone,Semi-Urban
+B00045,CA00044,Maharashtra,West,West Zone,Urban
+B00046,NV00045,Jammu and Kashmir,North,North Zone,Urban
+B00047,AZ00046,Rajasthan,North,North Zone,Urban
+B00048,DE00047,Puducherry,South,South Zone,Urban
+B00049,VA00048,Kerala,South,South Zone,Urban
+B00050,MO00049,Assam,Northeast,Northeast Zone,Semi-Urban

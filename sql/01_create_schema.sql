@@ -66,3 +66,51 @@ CREATE TABLE fact_transactions (
 CREATE INDEX idx_txn_date ON fact_transactions(transaction_date);
 CREATE INDEX idx_txn_yr_mth ON fact_transactions(`year_month`);
 CREATE INDEX idx_txn_acct ON fact_transactions(account_id);
+
+-- Create loan fact table
+CREATE TABLE fact_loans (
+    loan_id VARCHAR(10) PRIMARY KEY,
+    customer_id VARCHAR(10),
+    branch_id VARCHAR(10),
+    loan_amount DECIMAL(15,2),
+    FOREIGN KEY (customer_id) REFERENCES dim_customers(customer_id),
+    FOREIGN KEY (branch_id) REFERENCES dim_branches(branch_id)
+);
+
+-- Create branch targets table
+CREATE TABLE branch_targets (
+    target_id INT AUTO_INCREMENT PRIMARY KEY,
+    branch_id VARCHAR(10),
+    target_year INT,
+    target_month INT,
+    target_txn_amount DECIMAL(15,2),
+    target_loan_amount DECIMAL(15,2),
+    target_new_accounts INT,
+    FOREIGN KEY (branch_id) REFERENCES dim_branches(branch_id)
+);
+
+-- Create branch performance summary table
+CREATE TABLE branch_performance_summary (
+    summary_id INT AUTO_INCREMENT PRIMARY KEY,
+    calculated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    branch_id VARCHAR(10),
+    year INT,
+    month INT,
+    actual_txn_amount DECIMAL(15,2),
+    actual_txn_count INT,
+    actual_inflow DECIMAL(15,2),
+    actual_outflow DECIMAL(15,2),
+    active_accounts INT,
+    casa_accounts INT,
+    casa_ratio DECIMAL(5,2),
+    total_loan_amount DECIMAL(15,2),
+    target_txn_amount DECIMAL(15,2),
+    achievement_pct DECIMAL(6,2),
+    performance_status VARCHAR(15),
+    FOREIGN KEY (branch_id) REFERENCES dim_branches(branch_id)
+);
+
+show tables;
+select database();
+
+
