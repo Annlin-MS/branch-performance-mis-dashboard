@@ -219,30 +219,33 @@ df_account.to_csv("../data/clean/clean_accounts.csv", index=False)
 df_transaction.to_csv("../data/clean/clean_transactions.csv", index=False)
 df_loan.to_csv("../data/clean/clean_loans.csv", index=False)
 
+
 # Join transactions with branch IDs
 txn_acc = df_transaction.merge(
     df_account[['ACCOUNT_ID', 'BRANCH_ID']],
-    on='ACCOUNT_ID'
+    on='ACCOUNT_ID',
+    how='inner'
 )
 
-# Calculate annual transaction amount by branch
-branch_annual = (
+# Calculate total historical transactions by branch
+branch_total = (
     txn_acc.groupby('BRANCH_ID')['TRANSACTION_AMOUNT']
     .sum()
     .reset_index()
 )
 
-branch_annual.columns = [
-    'BRANCH_ID',
-    'ANNUAL_ACTUAL'
-]
+branch_total.columns = ['BRANCH_ID', 'TOTAL_ACTUAL']
 
-# Initialize target records
-targets = []
+# Calculate average monthly transactions over 10 years
+branch_total['MONTHLY_AVERAGE'] = (
+    branch_total['TOTAL_ACTUAL'] / 120
+)
 
 # Generate monthly branch targets
-for _, row in branch_annual.iterrows():
-    monthly_base = row['ANNUAL_ACTUAL'] / 10
+targets = []
+
+for _, row in branch_total.iterrows():
+    monthly_base = row['MONTHLY_AVERAGE']
 
     for year in [2022, 2023]:
         for month in range(1, 13):
@@ -255,7 +258,7 @@ for _, row in branch_annual.iterrows():
                 'TARGET_NEW_ACCOUNTS': 15
             })
 
-# Convert targets to DataFrame
+# Convert targets to a DataFrame
 targets_df = pd.DataFrame(targets)
 
 # Save branch targets
@@ -263,6 +266,10 @@ targets_df.to_csv(
     "../data/clean/branch_targets.csv",
     index=False
 )
+
+print("Branch targets generated:", len(targets_df))
+print(targets_df.head())
+
 
 # Display final file counts
 print("=== ALL FILES SAVED ===")
@@ -566,3 +573,215 @@ check = pd.read_csv("../data/clean/clean_loans_mysql.csv")
 
 print("CSV rows:", len(check))
 print("Unique IDs:", check['loan_id'].nunique())
+
+
+print(
+    targets_df[
+        (targets_df['BRANCH_ID'] == 'B00021') &
+        (targets_df['TARGET_YEAR'] == 2022) &
+        (targets_df['TARGET_MONTH'] == 1)
+    ]
+)
+
+
+print(
+    targets_df.loc[
+        (targets_df['BRANCH_ID'] == 'B00021') &
+        (targets_df['TARGET_YEAR'] == 2022) &
+        (targets_df['TARGET_MONTH'] == 1),
+        ['BRANCH_ID', 'TARGET_YEAR', 'TARGET_MONTH',
+         'TARGET_TXN_AMOUNT', 'TARGET_LOAN_AMOUNT']
+    ].to_string(index=False)
+)
+
+print(
+    targets_df.loc[
+        (targets_df['BRANCH_ID'] == 'B00021') &
+        (targets_df['TARGET_YEAR'] == 2022) &
+        (targets_df['TARGET_MONTH'] == 1),
+        ['BRANCH_ID', 'TARGET_YEAR', 'TARGET_MONTH',
+         'TARGET_TXN_AMOUNT', 'TARGET_LOAN_AMOUNT']
+    ].to_string(index=False)
+)
+
+
+print("Raw account rows:", len(df_account))
+print(
+    "Unique account IDs:",
+    df_account['ACCOUNT_ID'].nunique()
+)
+
+account_branch = (
+    df_account[['ACCOUNT_ID', 'BRANCH_ID']]
+    .drop_duplicates(subset=['ACCOUNT_ID'])
+)
+
+print("Unique account-branch rows:", len(account_branch))
+
+txn_acc = df_transaction.merge(
+    account_branch,
+    on='ACCOUNT_ID',
+    how='inner',
+    validate='many_to_one'
+)
+
+print("Rows after transaction merge:", len(txn_acc))
+print(
+    "B00021 transaction total:",
+    txn_acc.loc[
+        txn_acc['BRANCH_ID'] == 'B00021',
+        'TRANSACTION_AMOUNT'
+    ].sum()
+)
+
+
+branch_total['MONTHLY_AVERAGE'] = (
+    branch_total['TOTAL_ACTUAL'] / 120
+)
+
+branch_total['EXPECTED_TXN_TARGET'] = (
+    branch_total['MONTHLY_AVERAGE'] * 1.05
+)
+
+print(
+    branch_total.loc[
+        branch_total['BRANCH_ID'] == 'B00021',
+        [
+            'BRANCH_ID',
+            'TOTAL_ACTUAL',
+            'MONTHLY_AVERAGE',
+            'EXPECTED_TXN_TARGET'
+        ]
+    ].to_string(index=False)
+)
+
+
+# Check the transaction total used for target generation
+print(
+    "Transaction total in txn_acc:",
+    txn_acc.loc[
+        txn_acc['BRANCH_ID'] == 'B00021',
+        'TRANSACTION_AMOUNT'
+    ].sum()
+)
+
+print(
+    "Transaction total in branch_total:",
+    branch_total.loc[
+        branch_total['BRANCH_ID'] == 'B00021',
+        'TOTAL_ACTUAL'
+    ].iloc[0]
+)
+
+# Check whether branch_total has duplicate branch records
+print(
+    "B00021 rows in branch_total:",
+    (branch_total['BRANCH_ID'] == 'B00021').sum()
+)
+
+
+# Recalculate total transaction amount for each branch
+branch_total = (
+    txn_acc.groupby('BRANCH_ID', as_index=False)
+    ['TRANSACTION_AMOUNT']
+    .sum()
+    .rename(
+        columns={'TRANSACTION_AMOUNT': 'TOTAL_ACTUAL'}
+    )
+)
+
+# Verify B00021
+print(
+    branch_total.loc[
+        branch_total['BRANCH_ID'] == 'B00021'
+    ].to_string(index=False)
+)
+
+
+# Calculate monthly average across 10 years
+branch_total['MONTHLY_AVERAGE'] = (
+    branch_total['TOTAL_ACTUAL'] / 120
+)
+
+# Generate targets
+branch_total['TARGET_TXN_AMOUNT'] = (
+    branch_total['MONTHLY_AVERAGE'] * 1.05
+)
+
+branch_total['TARGET_LOAN_AMOUNT'] = (
+    branch_total['MONTHLY_AVERAGE'] * 0.8
+)
+
+# Verify B00021
+print(
+    branch_total.loc[
+        branch_total['BRANCH_ID'] == 'B00021',
+        [
+            'BRANCH_ID',
+            'TOTAL_ACTUAL',
+            'MONTHLY_AVERAGE',
+            'TARGET_TXN_AMOUNT',
+            'TARGET_LOAN_AMOUNT'
+        ]
+    ].to_string(index=False)
+)
+
+print("CSV rows:", len(targets_df))
+
+print(
+    targets_df.loc[
+        (targets_df['BRANCH_ID'] == 'B00021') &
+        (targets_df['TARGET_YEAR'] == 2022) &
+        (targets_df['TARGET_MONTH'] == 1),
+        [
+            'BRANCH_ID',
+            'TARGET_YEAR',
+            'TARGET_MONTH',
+            'TARGET_TXN_AMOUNT',
+            'TARGET_LOAN_AMOUNT'
+        ]
+    ].to_string(index=False)
+)
+
+
+# Generate monthly branch targets from corrected branch totals
+targets = []
+
+for _, row in branch_total.iterrows():
+    monthly_base = row['TOTAL_ACTUAL'] / 120
+
+    for year in [2022, 2023]:
+        for month in range(1, 13):
+            targets.append({
+                'BRANCH_ID': row['BRANCH_ID'],
+                'TARGET_YEAR': year,
+                'TARGET_MONTH': month,
+                'TARGET_TXN_AMOUNT': round(monthly_base * 1.05, 2),
+                'TARGET_LOAN_AMOUNT': round(monthly_base * 0.8, 2),
+                'TARGET_NEW_ACCOUNTS': 15
+            })
+
+targets_df = pd.DataFrame(targets)
+
+targets_df.to_csv(
+    "../data/clean/branch_targets.csv",
+    index=False
+)
+
+print("Target rows:", len(targets_df))
+
+print(
+    targets_df.loc[
+        (targets_df['BRANCH_ID'] == 'B00021') &
+        (targets_df['TARGET_YEAR'] == 2022) &
+        (targets_df['TARGET_MONTH'] == 1),
+        [
+            'BRANCH_ID',
+            'TARGET_YEAR',
+            'TARGET_MONTH',
+            'TARGET_TXN_AMOUNT',
+            'TARGET_LOAN_AMOUNT'
+        ]
+    ].to_string(index=False)
+)
+
